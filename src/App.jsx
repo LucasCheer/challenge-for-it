@@ -9,7 +9,7 @@ function App() {
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState('')
 
-  const filterUsers = users.filter(user => user.name.toLowerCase().includes(search.toLowerCase()))
+  const filterUsers = users.filter(user => user.name.toLowerCase().includes(search.toLowerCase()) || user.username.toLowerCase().includes(search.toLowerCase()) || user.email.toLowerCase().includes(search.toLowerCase()) || user.address.city.toLowerCase().includes(search.toLowerCase())) 
 
   const fetchUsers = async () => {
 
