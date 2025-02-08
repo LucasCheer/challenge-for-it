@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function Usercard({ user }) {
-
+const fetchUsers = ({user}) => {
     return (
         <div className='card'>
             <h2>{user.name}</h2>
@@ -13,3 +12,5 @@ export default function Usercard({ user }) {
         </div>
     )
 }
+
+export default fetchUsers
