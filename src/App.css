@@ -6,10 +6,11 @@
   height: 15vh;
   background-color: #1d1d1d;
   color: white;
-  gap: 10px;
+  gap: 20px;
 }
 
 .header .search-input{
+  width: 360px;
   padding: 10px;
   border-radius: 8px;
   margin-right: 10px;

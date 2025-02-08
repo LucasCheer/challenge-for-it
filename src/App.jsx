@@ -27,7 +27,7 @@ function App() {
       user.name.toLowerCase().includes(search.toLowerCase()) ||
       user.username.toLowerCase().includes(search.toLowerCase()) ||
       user.email.toLowerCase().includes(search.toLowerCase()) ||
-      user.address.city.toLowerCase().includes(search.toLowerCase())
+      user.address?.city.toLowerCase().includes(search.toLowerCase())
     )
 
     const addUser = (newUser) => {
@@ -40,7 +40,7 @@ function App() {
         <h1>Challenge For It</h1>
         <input
           type="text"
-          placeholder='Buscar por nombre'
+          placeholder='Buscar por nombre, username, email o ciudad'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className='search-input'

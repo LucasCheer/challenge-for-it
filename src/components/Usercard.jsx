@@ -5,7 +5,8 @@ const UserCard = ({ user }) => (
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Ciudad:</strong> {user.address ? user.address.city : "No disponible"}</p>
       <p><strong>Teléfono:</strong> {user.phone || "No disponible"}</p>
-      <p><strong>Empresa:</strong> {user.company ? user.company.name : "No disponible"}</p>
+      <p><strong>Empresa:</strong> {user.company?.name}</p>
+
     </div>
   );
   

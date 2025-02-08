@@ -27,9 +27,11 @@ function UserForm({ addUser }) {
     }
 
     addUser({
-      ...newUser,
-      id: Date.now()
-    });
+        ...newUser,
+        id: Date.now(),
+        address: { city: newUser.city },
+        company: newUser.company ? { name: newUser.company } : { name: "Independiente" } 
+      });
 
     setNewUser({
       name: "",
@@ -93,7 +95,7 @@ function UserForm({ addUser }) {
         value={newUser.company}
         onChange={handleChange}
         />
-        
+
       <button type="submit">Agregar Usuario</button>
     </form>
   );
