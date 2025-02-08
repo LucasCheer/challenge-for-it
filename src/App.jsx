@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import UserCard from './components/Usercard.jsx'
 import UserForm from './components/UserForm.jsx'
+import useFetch from './hooks/useFetch.js'
 
 function App() {
 
@@ -9,19 +10,21 @@ function App() {
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState('')
   
-    const fetchUsers = async () => {
+    // const fetchUsers = async () => {
   
-      try {
-        const response = await fetch(URL)
-        const data = await response.json()
-        setUsers(data)
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
+    //   try {
+    //     const response = await fetch(URL)
+    //     const data = await response.json()
+    //     setUsers(data)
+    //   }
+    //   catch (error) {
+    //     console.log(error)
+    //   }
+    // }
     
-    useEffect(() => { fetchUsers() }, [])
+    // useEffect(() => { fetchUsers() }, [])
+
+    const { data, loading, error } = useFetch(URL)
     
     const filterUsers = users.filter(user => 
       user.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -31,7 +34,7 @@ function App() {
     )
 
     const addUser = (newUser) => {
-      setUsers([...users, newUser])
+      setUsers([...data, newUser])
     }
 
   return (

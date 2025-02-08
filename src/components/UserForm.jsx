@@ -1,21 +1,31 @@
 import { useState } from "react";
+import useForm from "../hooks/useForm";
 
 function UserForm({ addUser }) {
-  const [newUser, setNewUser] = useState({
-    name: "",
-    username: "",
-    email: "",
-    city: "",
-    phone: "",
-    company: ""
-  });
+//   const [newUser, setNewUser] = useState({
+//     name: "",
+//     username: "",
+//     email: "",
+//     city: "",
+//     phone: "",
+//     company: ""
+//   });
 
-  const handleChange = (e) => {
-    setNewUser({
-      ...newUser,
-      [e.target.name]: e.target.value
+//   const handleChange = (e) => {
+//     setNewUser({
+//       ...newUser,
+//       [e.target.name]: e.target.value
+//     });
+//   };
+
+    const { form: newUser, handleChange } = useForm({
+        name: "",
+        username: "",
+        email: "",
+        city: "",
+        phone: "",
+        company: ""
     });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
