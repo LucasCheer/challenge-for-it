@@ -9,10 +9,17 @@ body{
   font-family: system-ui, sans-serif;
 }
 
-.card {
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main .card {
+  width: fit-content;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
   margin: 10px;
   background: #f9f9f9;
 }

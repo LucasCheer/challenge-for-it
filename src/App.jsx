@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react'
 import './App.css'
-import Usercard from './components/Usercard.jsx'
+import UserCard from './components/Usercard.jsx'
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     <main className='main'>
       {
         users.map((user) => (
-          <Usercard key={user.id} user={user} />
+          <UserCard key={user.id} user={user} />
         ))
       }
     </main>
