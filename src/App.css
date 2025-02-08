@@ -32,3 +32,44 @@
   margin: 10px;
   background: #f9f9f9;
 }
+
+.main .no-results{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.user-form button {
+  padding: 10px;
+  background: #00964e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-form button:hover {
+  background: #00571c;
+}
