@@ -1,17 +1,48 @@
-# Challenge For It - React App
+# Challenge For It
 
-Este proyecto es parte del desafío técnico de **FORIT**, donde se consume una API REST para mostrar una lista de usuarios, permitiendo buscarlos y agregarlos manualmente.
+Este es un proyecto en React que consume la API de `https://jsonplaceholder.typicode.com/users` para listar usuarios y permite agregar nuevos usuarios manualmente.
 
-## 🚀 Tecnologías usadas
-- React con Vite
-- Fetch API para consumo de datos
+## 📌 Características
+- Obtiene y muestra una lista de usuarios desde la API.
+- Filtra usuarios por nombre, nombre de usuario, email y ciudad.
+- Permite agregar nuevos usuarios a la lista.
+- Implementa un modal para el formulario de agregar usuario.
+- Usa React Hooks (`useState`, `useEffect`).
+
+## 📁 Estructura del Proyecto
+```
+📂 src/
+ ├── 📂 components/
+ │   ├── UserCard.jsx
+ │   ├── UserForm.jsx
+ ├── App.jsx
+ ├── App.css
+ ├── main.jsx
+ ├── index.html
+```
+
+## 🛠 Tecnologías utilizadas
+- React.js
 - CSS para estilos
+- API Fetch
 
-## 📌 Requisitos previos
-Antes de ejecutar la aplicación, asegúrate de tener instalado **Node.js** y **npm**.
+## 🚀 Instalación y ejecución
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/LucasCheer/challenge-for-it
+   cd challenge-for-it
+   ```
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+3. Ejecutar el servidor:
+   ```bash
+   npm run dev
+   ```
 
-## 📥 Instalación
-Clona este repositorio y entra en la carpeta del proyecto:
+## 🎨 Estilos y Diseño
+El proyecto tiene un diseño minimalista con una interfaz intuitiva y clara. Se recomienda personalizar los estilos en `App.css` para ajustarlo a tus necesidades.
 
-```sh
-git clone https://github.com/LucasCheer/challenge-for-it
+## 📜 Licencia
+Este proyecto está bajo la licencia MIT.
