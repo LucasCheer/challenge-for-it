@@ -4,40 +4,42 @@ import UserCard from './components/Usercard.jsx'
 import UserForm from './components/UserForm.jsx'
 
 function App() {
-
   const URL = 'https://jsonplaceholder.typicode.com/users'
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState('')
-  
-    const fetchUsers = async () => {
-  
-      try {
-        const response = await fetch(URL)
-        const data = await response.json()
-        setUsers(data)
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
-    
-    useEffect(() => { fetchUsers() }, [])
-    
-    const filterUsers = users.filter(user => 
-      user.name.toLowerCase().includes(search.toLowerCase()) ||
-      user.username.toLowerCase().includes(search.toLowerCase()) ||
-      user.email.toLowerCase().includes(search.toLowerCase()) ||
-      user.address?.city.toLowerCase().includes(search.toLowerCase())
-    )
+  const [loading, setLoading] = useState(true)
+  const [showModal, setShowModal] = useState(false) 
 
-    const addUser = (newUser) => {
-      setUsers([...users, newUser])
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(URL)
+      const data = await response.json()
+      setUsers(data)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
     }
+  }
+
+  useEffect(() => { fetchUsers() }, [])
+
+  const filterUsers = users.filter(user => 
+    user.name.toLowerCase().includes(search.toLowerCase()) ||
+    user.username.toLowerCase().includes(search.toLowerCase()) ||
+    user.email.toLowerCase().includes(search.toLowerCase()) ||
+    user.address?.city.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const addUser = (newUser) => {
+    setUsers([...users, newUser])
+    setShowModal(false)
+  }
 
   return (
     <>
+
       <header className='header'>
-        <h1>Challenge For It</h1>
+        <h1 className='title'>Challenge Forit</h1>
         <input
           type="text"
           placeholder='Buscar por nombre, username, email o ciudad'
@@ -46,11 +48,25 @@ function App() {
           className='search-input'
         />
       </header>
-      
-      <UserForm addUser={addUser} />
+
+      <button onClick={() => setShowModal(true)} className="open-modal-btn">
+        Agregar Usuario
+      </button>
+
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <button className="close-modal-btn" onClick={() => setShowModal(false)}>✖</button>
+            <UserForm addUser={addUser} />
+          </div>
+        </div>
+      )}
+
+      <h2 className='title'>Usuarios</h2>
 
       <main className='main'>
-        {filterUsers.length > 0 ? (
+        {loading ? <p className='loading'>Cargando...</p> :
+        filterUsers.length > 0 ? (
           filterUsers.map((user) => (
             <UserCard key={user.id} user={user} />
           ))
@@ -58,6 +74,7 @@ function App() {
           <p className='no-results'>No se encontraron resultados</p>
         )}
       </main>
+
     </>
   )
 }
